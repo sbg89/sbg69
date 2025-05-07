@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peluquería Glamour - Agenda tu Cita</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Aplicamos las fuentes base */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* bg-slate-50 */
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Lora', serif; /* Fuente más elegante para títulos */
+        }
+        .hero-title {
+            color: #c026d3; /* text-fuchsia-600 */
+        }
+        .section-title {
+            color: #a21caf; /* text-fuchsia-700 */
+        }
+        .service-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Tailwind shadow-lg */
+        }
+        .calendar-container iframe {
+            min-height: 70vh;
+            border: 1px solid #e2e8f0; /* slate-200 */
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <div class="container mx-auto px-4 py-8 sm:px-6 lg:px-8 max-w-6xl">
+
+        <header class="text-center py-12 md:py-20">
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold hero-title mb-4">
+                Peluquería Glamour
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">
+                Tu estilo, nuestra pasión. Descubre la belleza en tus manos y agenda tu cita online de forma rápida y sencilla.
+            </p>
+        </header>
+
+        <main id="agenda" class="bg-white p-6 sm:p-10 rounded-xl shadow-2xl my-12 md:my-16">
+            <h2 class="text-3xl sm:text-4xl font-semibold section-title mb-8 text-center">
+                Agenda tu Cita Online
+            </h2>
+            
+            <div class="calendar-container">
+                <iframe 
+                  src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ34OnNAVXJxGu23CB_EMbB_tdO6NEwuC2UE0RWIBdnxLHnbfI4kwGmKt9hiQRuIxH8oh5_xv9aG?gv=true" 
+                  style="border:0; width:100%; height:75vh; border-radius: 0.75rem;"  
+                  frameborder="0" 
+                  scrolling="yes">
+                </iframe>
+            </div>
+            
+            <p class="text-slate-600 mt-8 text-center text-sm sm:text-base">
+                Si tienes alguna pregunta o prefieres agendar por teléfono, no dudes en <a href="tel:+34900123456" class="text-fuchsia-600 hover:text-fuchsia-700 font-semibold">contactarnos</a>.
+            </p>
+        </main>
+
+        <section id="servicios" class="my-12 md:my-20">
+            <h2 class="text-3xl sm:text-4xl font-semibold section-title mb-10 md:mb-12 text-center">Nuestros Servicios Estrella</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg text-center">
+                    <h3 class="text-2xl font-semibold text-fuchsia-500 mb-3">Corte de Dama</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Transforma tu look con un corte moderno y personalizado, adaptado a tu estilo y facciones.
+                    </p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg text-center">
+                    <h3 class="text-2xl font-semibold text-fuchsia-500 mb-3">Coloración Premium</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Desde mechas balayage hasta tintes completos con productos de alta calidad que cuidan tu cabello.
+                    </p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg text-center">
+                    <h3 class="text-2xl font-semibold text-fuchsia-500 mb-3">Tratamientos Revitalizantes</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Devuelve la vida a tu melena con nuestros tratamientos de hidratación profunda y reparación intensiva.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-16 md:mt-24 py-10 border-t border-slate-200">
+            <p class="text-slate-700 font-semibold text-lg mb-2">
+                Peluquería Glamour
+            </p>
+            <p class="text-slate-600">
+                Calle Falsa 123, Ciudad, Provincia
+            </p>
+            <p class="text-slate-600 mb-4">
+                Teléfono: <a href="tel:+34900123456" class="hover:text-fuchsia-600">(34) 900 123 456</a>
+            </p>
+            <p class="text-sm text-slate-500">
+                &copy; <span id="currentYear"></span> Peluquería Glamour. Todos los derechos reservados.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Script para el año actual en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
