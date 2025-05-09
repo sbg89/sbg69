@@ -1,0 +1,16 @@
+# backend/requirements.txt
+
+Flask>=2.0.0
+Flask-CORS>=3.0.0
+
+# Opcional: Si decides implementar envío de emails con Flask-Mail
+# Flask-Mail>=0.9.1
+
+# Opcional: Si decides usar una base de datos con Flask-SQLAlchemy
+# Flask-SQLAlchemy>=2.5.1
+# SQLAlchemy>=1.4.0
+# psycopg2-binary # Ejemplo para PostgreSQL
+# mysqlclient    # Ejemplo para MySQL
+
+# Opcional: Para cargar variables de entorno desde un archivo .env
+# python-dotenv>=0.19.0

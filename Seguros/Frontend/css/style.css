@@ -1,0 +1,318 @@
+/* css/style.css */
+
+/* Estilos Generales del Cuerpo y Tipografía Base */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth; /* Habilita el desplazamiento suave para anclas en toda la página */
+    font-size: 16px; /* Establecer un tamaño de fuente base para mejor escalabilidad con rem */
+}
+
+/* Tipografía para Encabezados y Elementos Destacados */
+h1, h2, h3, h4, h5, h6, .nav-link, .cta-button {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Tipografía para Párrafos, Listas y Elementos de Formulario */
+p, li, span, label, input, select, textarea, footer p, cite {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.7;
+}
+
+/* Estilos de la Sección Hero (Principal) */
+.hero-section {
+    /* REEMPLAZAR 'images/hero-background.jpg' con la ruta a tu imagen de fondo real */
+    background: linear-gradient(rgba(20,30,40,0.8), rgba(40,50,60,0.7)), url('../images/hero-background.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Considerar quitar si causa problemas de rendimiento en móviles */
+}
+/* Fallback si la imagen no carga o para mejorar el performance inicial */
+.hero-section:has(img[src$="hero-background.jpg"]:not([src])) { /* Solo si la imagen específica no carga */
+    background: linear-gradient(rgba(20,30,40,0.8), rgba(40,50,60,0.7)), url('https://placehold.co/1920x1080/34495e/ecf0f1?text=Asesoramiento+Estratégico') no-repeat center center;
+}
+
+
+/* Estilos de los Enlaces de Navegación */
+.nav-link {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem; /* rounded-md */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #e5e7eb; /* text-gray-200 */
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    text-decoration: none;
+    position: relative; /* Para el pseudo-elemento de hover */
+}
+.nav-link::after { /* Subrayado sutil en hover/focus */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px; /* Posición del subrayado */
+    left: 50%;
+    background-color: #fff; /* Color del subrayado */
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.nav-link:hover, .nav-link:focus {
+    background-color: #0369a1; /* sky-700 */
+    color: #fff;
+    outline: none;
+}
+.nav-link:hover::after, .nav-link:focus::after {
+    width: calc(100% - 2rem); /* Ancho del subrayado (ajustar según padding) */
+    left: 1rem;
+}
+
+.nav-link-active {
+    background-color: #075985; /* sky-800 */
+    color: #fff;
+    font-weight: 600; /* font-semibold */
+}
+.nav-link-active::after { /* Subrayado permanente para el activo */
+    width: calc(100% - 2rem);
+    left: 1rem;
+    background-color: #e5e7eb; /* Un color que contraste con el fondo activo */
+}
+
+
+/* Estilos del Botón de Llamada a la Acción (CTA) */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 1px solid transparent;
+    font-size: 1rem; /* text-base */
+    font-weight: 600; /* font-semibold */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.2), 0 4px 6px -4px rgba(2, 132, 199, 0.2); /* Sombra con color del botón */
+    color: #fff;
+    background-color: #0284c7; /* sky-600 */
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cta-button:hover, .cta-button:focus {
+    background-color: #0369a1; /* sky-700 */
+    transform: scale(1.05) translateY(-2px); /* Efecto de elevación y zoom */
+    box-shadow: 0 12px 20px -3px rgba(2, 132, 199, 0.25), 0 6px 10px -4px rgba(2, 132, 199, 0.25);
+}
+
+.cta-button:focus-visible { /* Estilo de foco visible específico para accesibilidad */
+    outline: 3px solid #38bdf8; /* sky-400, más brillante */
+    outline-offset: 3px;
+}
+.cta-button:disabled {
+    background-color: #9ca3af; /* gray-400 */
+    color: #e5e7eb; /* gray-200 */
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+
+/* Estilos de las Tarjetas de Servicio */
+.service-card {
+    background-color: #fff;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 10px 15px -3px rgba(16, 112, 202, 0.08), 0 4px 6px -4px rgba(16, 112, 202, 0.08);
+    padding: 2rem;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Para igualar alturas en un grid */
+}
+
+.service-card:hover, .service-card:focus-within {
+    box-shadow: 0 20px 25px -5px rgba(16, 112, 202, 0.12), 0 8px 10px -6px rgba(16, 112, 202, 0.12);
+    transform: translateY(-0.5rem);
+}
+
+.service-card h3 {
+    margin-bottom: 1rem;
+    color: #075985; /* Color de título de tarjeta más oscuro */
+}
+
+.service-card p {
+    color: #4b5563; /* gray-600 */
+    flex-grow: 1;
+}
+
+/* Estilos de las Tarjetas de Testimonios */
+.testimonial-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(16, 112, 202, 0.08), 0 4px 6px -4px rgba(16, 112, 202, 0.08);
+    border-left: 4px solid #0ea5e9; /* sky-500 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.testimonial-card p:first-of-type {
+    flex-grow: 1;
+    font-style: italic;
+}
+.testimonial-card cite {
+    font-weight: 600; /* font-semibold */
+    color: #0369a1; /* sky-700 */
+    text-align: right;
+    margin-top: 1rem;
+}
+
+
+/* Estilos para Campos de Formulario */
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    border: 1px solid #d1d5db; /* gray-300 */
+    outline: none;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
+    background-color: #fff;
+    color: #1f2937; /* gray-800 */
+    font-size: 0.9375rem; /* Ligeramente más pequeño que 1rem para mejor estética */
+}
+.form-input::placeholder, .form-textarea::placeholder {
+    color: #9ca3af; /* gray-400 */
+    opacity: 1;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: #0ea5e9; /* sky-500 */
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.25); /* Sombra de foco más pronunciada */
+}
+.form-input.border-red-500, .form-textarea.border-red-500 { /* Estilo para campos con error */
+    border-color: #ef4444; /* red-500 */
+}
+.form-input.border-red-500:focus, .form-textarea.border-red-500:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+}
+
+
+/* Estilos para Etiquetas de Formulario */
+.form-label {
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600; /* font-semibold */
+    color: #374151; /* gray-700 */
+    margin-bottom: 0.5rem;
+}
+.form-label .text-red-500 { /* Para el asterisco de campo obligatorio */
+    margin-left: 0.25rem;
+}
+
+
+/* Estilos para Títulos de Sección */
+.section-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 800; /* font-extrabold, para más impacto */
+    color: #075985; /* sky-800, más oscuro */
+    margin-bottom: 1rem;
+    text-transform: uppercase; /* Opcional: para un look más formal */
+    letter-spacing: 0.05em; /* Opcional: espaciado entre letras */
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 2.25rem; /* text-4xl */
+    }
+}
+
+/* Estilos para Subtítulos de Sección */
+.section-subtitle {
+    font-size: 1.125rem; /* text-lg */
+    color: #4b5563; /* gray-600 */
+    max-width: 42rem; /* Ancho máximo */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.625;
+}
+
+/* Animación de Aparición Suave para Secciones */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(50px); /* Un poco más de desplazamiento inicial */
+    transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Easing con rebote sutil */
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Contenedor Principal para el contenido de las secciones */
+.main-container {
+    max-width: 1280px; /* max-w-7xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem;
+    padding-top: 2.5rem; /* py-10 */
+    padding-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) { /* sm */
+    .main-container {
+        padding-left: 1.5rem; /* sm:px-6 */
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) { /* lg */
+    .main-container {
+        padding-left: 2rem; /* lg:px-8 */
+        padding-right: 2rem;
+    }
+}
+
+@media (min-width: 768px) { /* md */
+    .main-container {
+        padding-top: 4rem; /* md:py-16 */
+        padding-bottom: 4rem;
+    }
+}
+
+/* Mejoras de accesibilidad para el foco del teclado */
+/* Se quita el outline global y se maneja por componente para más control */
+*:focus {
+    outline: none;
+}
+
+/* Estilos de foco visibles específicos */
+.nav-link:focus-visible,
+#mobile-menu-button:focus-visible,
+a:focus-visible:not(.cta-button):not(.nav-link) { /* Para enlaces generales */
+    outline: 2px solid #38bdf8; /* sky-400 */
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
+}
+
+.form-input:focus-visible,
+.form-select:focus-visible,
+.form-textarea:focus-visible {
+    border-color: #0ea5e9; /* sky-500 */
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.25);
+}
+
+/* Icono de menú móvil */
+#mobile-menu-button i {
+    transition: transform 0.3s ease-in-out;
+}
+#mobile-menu-button[aria-expanded="true"] i {
+    transform: rotate(90deg); /* Opcional: animación para el icono */
+}
+
+/* Mensaje del formulario */
+#formMessageContainer {
+    min-height: 1.5rem; /* Para evitar saltos de layout cuando el mensaje aparece/desaparece */
+}
+
